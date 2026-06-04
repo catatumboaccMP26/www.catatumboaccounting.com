@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catatumbo Accounting & Advisory | Coming Soon</title>
+<meta name="description" content="Catatumbo Accounting & Advisory — Bookkeeping, Payroll, CFO Services, Business Formation and Financial Advisory. Bilingual EN/ES. Serving all 50 US States.">
+<meta name="keywords" content="accounting, bookkeeping, payroll, CFO, business formation, LLC, tax prep, bilingual, Spanish, California">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --ivory:#F6F1E9;
+  --ivory-dark:#EDE7DA;
+  --white:#FFFFFF;
+  --navy:#0C1A2E;
+  --navy-mid:#1A2E48;
+  --navy-light:#2A4A6B;
+  --blue:#1B6AB5;
+  --blue-light:#2E82CC;
+  --blue-pale:rgba(27,106,181,0.08);
+  --gold:#B8861F;
+  --gold-light:#D4A843;
+  --gold-pale:rgba(184,134,31,0.1);
+  --text:#0C1A2E;
+  --text-mid:#2A3D52;
+  --text-muted:#6B7E92;
+  --border:rgba(12,26,46,0.1);
+  --border-gold:rgba(184,134,31,0.2);
+  --success:#2E7D5E;
+}
+html,body{height:100%;}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--ivory);
+  color:var(--text);
+  line-height:1.7;
+  font-weight:300;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  overflow-x:hidden;
+}
+
+/* ── SUBTLE GRAIN TEXTURE ── */
+body::before{
+  content:'';
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity:0.4;
+}
+
+/* ── LIGHTNING CANVAS ── */
+#bg-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.18;}
+
+/* ── WARM RADIAL GLOW ── */
+.bg-glow{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 10% 30%, rgba(27,106,181,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 70%, rgba(184,134,31,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.6) 0%, transparent 50%);
+}
+
+/* ── DECORATIVE LINES ── */
+.deco-lines{
+  position:fixed;top:0;right:0;width:350px;height:350px;z-index:0;pointer-events:none;opacity:0.12;
+}
+
+/* ── TOP BAR ── */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;height:64px;
+  background:rgba(246,241,233,0.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.top-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-bolt{width:18px;height:22px;}
+.logo-bolt svg{width:100%;height:100%;}
+.top-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy);letter-spacing:0.01em;}
+.top-logo-text span{color:var(--blue);}
+.lang-toggle{display:flex;align-items:center;background:var(--white);border:1px solid var(--border);border-radius:20px;padding:3px;gap:2px;}
+.lang-btn{background:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;color:var(--text-muted);padding:0.25rem 0.7rem;border-radius:16px;transition:all 0.25s;text-transform:uppercase;}
+.lang-btn.active{background:var(--navy);color:var(--white);}
+.lang-btn:not(.active):hover{color:var(--navy);}
+
+/* ── PAGE WRAPPER ── */
+.page{
+  position:relative;z-index:1;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:90px 5% 50px;
+  text-align:center;
+}
+
+/* ── LAUNCH BADGE ── */
+.launch-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--gold-pale);border:1px solid var(--border-gold);
+  border-radius:20px;padding:0.3rem 1rem;
+  font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:2rem;
+  animation:fadeUp 0.6s ease forwards;
+}
+.launch-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse-dot 2s ease-in-out infinite;}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);}}
+
+/* ── LOGO MARK ── */
+.logo-mark{
+  position:relative;width:68px;height:84px;margin:0 auto 1.5rem;
+  animation:fadeUp 0.7s ease 0.1s forwards;opacity:0;
+}
+.logo-mark svg{width:100%;height:100%;}
+.logo-ring{
+  position:absolute;inset:-16px;border-radius:50%;
+  border:1px solid rgba(27,106,181,0.15);
+  animation:ring-pulse 3s ease-in-out infinite;
+}
+.logo-ring2{animation-delay:1.5s;}
+@keyframes ring-pulse{0%,100%{transform:scale(0.9);opacity:0.5;}50%{transform:scale(1.1);opacity:0.15;}}
+
+/* ── EYEBROW ── */
+.eyebrow{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:1rem;
+  animation:fadeUp 0.8s ease 0.15s forwards;opacity:0;
+}
+.eyebrow-line{width:32px;height:1px;background:var(--blue);opacity:0.5;}
+
+/* ── BRAND NAME ── */
+.brand-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,6vw,4rem);
+  color:var(--navy);font-weight:700;line-height:1.05;
+  margin-bottom:0.5rem;letter-spacing:-0.01em;
+  animation:fadeUp 0.8s ease 0.2s forwards;opacity:0;
+}
+.brand-name .accent{color:var(--blue);}
+
+/* ── TAGLINE ── */
+.tagline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.05rem,2.5vw,1.35rem);
+  color:var(--text-muted);font-style:italic;font-weight:300;
+  margin-bottom:2rem;letter-spacing:0.01em;
+  animation:fadeUp 0.8s ease 0.25s forwards;opacity:0;
+}
+
+/* ── GOLD RULE ── */
+.gold-rule{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  margin-bottom:1.75rem;
+  animation:fadeUp 0.8s ease 0.28s forwards;opacity:0;
+}
+.gold-rule-line{width:50px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));}
+.gold-rule-line.r{background:linear-gradient(90deg,var(--gold),transparent);}
+.gold-rule-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);}
+
+/* ── DESCRIPTION ── */
+.description{
+  font-size:0.97rem;color:var(--text-mid);
+  max-width:540px;line-height:1.95;margin:0 auto 2rem;
+  animation:fadeUp 0.8s ease 0.3s forwards;opacity:0;
+}
+.description strong{color:var(--navy);font-weight:500;}
+
+/* ── SERVICE PILLS ── */
+.services-row{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+  margin-bottom:2.5rem;
+  animation:fadeUp 0.8s ease 0.35s forwards;opacity:0;
+}
+.service-pill{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:4px;padding:0.35rem 1rem;
+  font-size:0.75rem;color:var(--text-mid);
+  letter-spacing:0.06em;display:flex;align-items:center;gap:6px;
+  transition:all 0.2s;box-shadow:0 1px 4px rgba(12,26,46,0.06);
+}
+.service-pill:hover{border-color:var(--blue);color:var(--blue);box-shadow:0 2px 10px rgba(27,106,181,0.1);}
+.pill-bolt{font-size:0.65rem;color:var(--gold);}
+
+/* ── CARD ── */
+.main-card{
+  width:100%;max-width:520px;
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:12px;padding:2.25rem;
+  box-shadow:0 4px 30px rgba(12,26,46,0.08),0 1px 6px rgba(12,26,46,0.04);
+  margin:0 auto 2rem;
+  position:relative;overflow:hidden;
+  animation:fadeUp 0.8s ease 0.4s forwards;opacity:0;
+}
+.main-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--navy),var(--blue),var(--gold));
+}
+.card-label{
+  font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:0.65rem;display:block;
+}
+.email-form{display:flex;gap:8px;}
+.email-input{
+  flex:1;background:var(--ivory);
+  border:1px solid var(--border);border-radius:6px;
+  padding:0.8rem 1rem;color:var(--navy);
+  font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:300;
+  outline:none;transition:border-color 0.2s,box-shadow 0.2s;
+}
+.email-input:focus{border-color:rgba(27,106,181,0.4);box-shadow:0 0 0 3px rgba(27,106,181,0.07);}
+.email-input::placeholder{color:rgba(107,126,146,0.5);}
+.email-btn{
+  background:var(--navy);color:var(--white);
+  border:none;border-radius:6px;padding:0.8rem 1.3rem;
+  font-family:'Outfit',sans-serif;font-size:0.82rem;font-weight:500;
+  letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;
+  transition:all 0.2s;white-space:nowrap;
+}
+.email-btn:hover{background:var(--navy-mid);transform:translateY(-1px);box-shadow:0 4px 14px rgba(12,26,46,0.2);}
+.email-success{
+  display:none;align-items:center;justify-content:center;gap:8px;
+  font-size:0.85rem;color:var(--success);padding:0.7rem;
+  background:rgba(46,125,94,0.06);border:1px solid rgba(46,125,94,0.2);
+  border-radius:6px;margin-top:0.5rem;
+}
+.email-note{font-size:0.7rem;color:var(--text-muted);margin-top:0.6rem;letter-spacing:0.03em;}
+
+.card-divider{height:1px;background:var(--border);margin:1.5rem 0;}
+
+.card-or{
+  text-align:center;font-size:0.72rem;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--text-muted);
+  margin:0 0 1.25rem;position:relative;
+}
+.card-or::before,.card-or::after{
+  content:'';position:absolute;top:50%;width:35%;height:1px;background:var(--border);
+}
+.card-or::before{left:0;}.card-or::after{right:0;}
+
+/* ── CTA BUTTONS ── */
+.btn-gold-solid{
+  display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
+  background:var(--gold);color:var(--white);
+  padding:0.85rem;border-radius:6px;
+  font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:500;
+  letter-spacing:0.07em;text-transform:uppercase;
+  text-decoration:none;transition:all 0.25s;margin-bottom:0.65rem;
+}
+.btn-gold-solid:hover{background:var(--gold-light);transform:translateY(-1px);box-shadow:0 6px 20px rgba(184,134,31,0.25);}
+.btn-outline{
+  display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
+  background:transparent;color:var(--navy);
+  padding:0.82rem;border-radius:6px;
+  border:1px solid var(--border);
+  font-family:'Outfit',sans-serif;font-size:0.85rem;
+  letter-spacing:0.07em;text-transform:uppercase;
+  text-decoration:none;transition:all 0.25s;
+}
+.btn-outline:hover{border-color:var(--navy);box-shadow:0 2px 10px rgba(12,26,46,0.08);transform:translateY(-1px);}
+.btn-outline svg,.btn-gold-solid svg{width:15px;height:15px;flex-shrink:0;}
+
+/* ── TRUST ROW ── */
+.trust-row{
+  display:flex;flex-wrap:wrap;gap:0.75rem 1.25rem;justify-content:center;
+  margin-bottom:2.5rem;
+  animation:fadeUp 0.8s ease 0.5s forwards;opacity:0;
+}
+.trust-item{
+  display:flex;align-items:center;gap:6px;
+  font-size:0.75rem;color:var(--text-muted);letter-spacing:0.04em;
+}
+.trust-item svg{width:13px;height:13px;color:var(--blue);}
+.trust-flag{font-size:0.85rem;}
+.trust-sep{color:var(--border);font-size:0.6rem;}
+
+/* ── BOTTOM STRIP ── */
+.bottom-strip{
+  position:relative;z-index:1;margin-top:auto;
+  background:var(--navy);padding:1.5rem 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;width:100%;
+}
+.bs-logo{display:flex;align-items:center;gap:8px;font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:rgba(255,255,255,0.9);}
+.bs-logo span{color:#5BB8E8;}
+.bs-origin{font-size:0.72rem;color:rgba(255,255,255,0.35);font-style:italic;font-family:'Cormorant Garamond',serif;}
+.bs-copy{font-size:0.7rem;color:rgba(255,255,255,0.25);letter-spacing:0.03em;}
+
+/* ── DECORATIVE SVG GRID ── */
+.deco-grid{
+  position:fixed;top:0;right:0;width:400px;height:400px;
+  z-index:0;pointer-events:none;opacity:0.035;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .email-form{flex-direction:column;}
+  .email-btn{width:100%;}
+  .bottom-strip{flex-direction:column;text-align:center;}
+  .trust-sep{display:none;}
+  .deco-grid{display:none;}
+}
+[data-i18n]{transition:opacity 0.15s;}
+.lang-switching [data-i18n]{opacity:0;}
+</style>
+</head>
+<body>
+
+<!-- LIGHTNING CANVAS (SUBTLE) -->
+<canvas id="bg-canvas"></canvas>
+<div class="bg-glow"></div>
+
+<!-- DECORATIVE GRID -->
+<svg class="deco-grid" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0C1A2E" stroke-width="0.5"/></pattern></defs>
+  <rect width="400" height="400" fill="url(#grid)"/>
+</svg>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <a class="top-logo" href="#">
+    <div class="logo-bolt">
+      <svg viewBox="0 0 22 28" fill="none"><path d="M13 2L3 15H11L9 26L21 11H13L13 2Z" fill="#1B6AB5"/></svg>
+    </div>
+    <div class="top-logo-text">Catatumbo <span>Accounting</span></div>
+  </a>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
+  </div>
+</div>
+
+<!-- PAGE -->
+<div class="page">
+
+  <!-- LAUNCH BADGE -->
+  <div class="launch-badge">
+    <div class="launch-dot"></div>
+    <span data-i18n="badge">Launching Soon</span>
+  </div>
+
+  <!-- LOGO MARK -->
+  <div class="logo-mark">
+    <div class="logo-ring"></div>
+    <div class="logo-ring logo-ring2"></div>
+    <svg viewBox="0 0 68 84" fill="none">
+      <path d="M42 4L6 46H32L22 80L68 34H42L42 4Z" fill="url(#lg)"/>
+      <defs>
+        <linearGradient id="lg" x1="37" y1="4" x2="37" y2="80" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#1B6AB5"/>
+          <stop offset="100%" stop-color="#0C3A6A"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- EYEBROW -->
+  <div class="eyebrow">
+    <div class="eyebrow-line"></div>
+    <span data-i18n="eyebrow">Accounting · Advisory · Bilingual</span>
+    <div class="eyebrow-line"></div>
+  </div>
+
+  <!-- BRAND NAME -->
+  <h1 class="brand-name">
+    Catatumbo<br>
+    <span class="accent">Accounting & Advisory</span>
+  </h1>
+
+  <!-- TAGLINE -->
+  <p class="tagline" data-i18n="tagline">"Where Precision Strikes Like Lightning."</p>
+
+  <!-- GOLD RULE -->
+  <div class="gold-rule">
+    <div class="gold-rule-line"></div>
+    <div class="gold-rule-diamond"></div>
+    <div class="gold-rule-line r"></div>
+  </div>
+
+  <!-- DESCRIPTION -->
+  <p class="description" data-i18n="desc">
+    A <strong>full-service accounting & advisory firm</strong> for small businesses, freelancers, startups, restaurants, and real estate investors — serving all 50 US states, <strong>fully bilingual in English and Spanish.</strong>
+  </p>
+
+  <!-- SERVICE PILLS -->
+  <div class="services-row">
+    <div class="service-pill"><span class="pill-bolt">⚡</span><span data-i18n="svc.1">Bookkeeping</span></div>
+    <div class="service-pill"><span class="pill-bolt">⚡</span><span data-i18n="svc.2">Accounting & Tax Prep</span></div>
+    <div class="service-pill"><span class="pill-bolt">⚡</span><span data-i18n="svc.3">Payroll Management</span></div>
+    <div class="service-pill"><span class="pill-bolt">⚡</span><span data-i18n="svc.4">Controller / CFO Services</span></div>
+    <div class="service-pill"><span class="pill-bolt">⚡</span><span data-i18n="svc.5">Business Formation</span></div>
+    <div class="service-pill"><span class="pill-bolt">⚡</span><span data-i18n="svc.6">Financial Advisory</span></div>
+  </div>
+
+  <!-- MAIN CARD -->
+  <div class="main-card">
+
+    <!-- EMAIL CAPTURE -->
+    <span class="card-label" data-i18n="email.label">Get notified at launch — receive a free financial checklist</span>
+    <div class="email-form">
+      <input class="email-input" type="email" id="emailInput" placeholder="your@email.com" data-i18n-ph="email.ph">
+      <button class="email-btn" onclick="submitEmail()" data-i18n="email.btn">Notify Me</button>
+    </div>
+    <div class="email-success" id="emailSuccess">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      <span data-i18n="email.success">You're on the list! We'll be in touch soon.</span>
+    </div>
+    <p class="email-note" data-i18n="email.note">No spam, ever. Unsubscribe anytime.</p>
+
+    <div class="card-divider"></div>
+    <div class="card-or" data-i18n="card.or">or reach us directly</div>
+
+    <!-- CTA BUTTONS -->
+    <a href="https://calendly.com/your-link" target="_blank" class="btn-gold-solid">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+      <span data-i18n="cta.book">Book a Free Consultation</span>
+    </a>
+    <a href="mailto:hello@catatumboaccounting.com" class="btn-outline">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      <span data-i18n="cta.email">hello@catatumboaccounting.com</span>
+    </a>
+
+  </div>
+
+  <!-- TRUST BADGES -->
+  <div class="trust-row">
+    <div class="trust-item">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      <span data-i18n="trust.1">IRS Compliant</span>
+    </div>
+    <span class="trust-sep">●</span>
+    <div class="trust-item">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+      <span data-i18n="trust.2">All 50 US States</span>
+    </div>
+    <span class="trust-sep">●</span>
+    <div class="trust-item">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+      <span data-i18n="trust.3">Bilingual EN / ES</span>
+    </div>
+    <span class="trust-sep">●</span>
+    <div class="trust-item">
+      <span class="trust-flag">🇻🇪</span>
+      <span data-i18n="trust.4">Venezuelan-Founded</span>
+    </div>
+    <span class="trust-sep">●</span>
+    <div class="trust-item">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+      <span data-i18n="trust.5">Secure Client Portal</span>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<!-- BOTTOM STRIP -->
+<div class="bottom-strip">
+  <div class="bs-logo">
+    <svg width="14" height="18" viewBox="0 0 22 28" fill="none"><path d="M13 2L3 15H11L9 26L21 11H13L13 2Z" fill="#5BB8E8"/></svg>
+    Catatumbo <span>Accounting & Advisory</span>
+  </div>
+  <div class="bs-origin" data-i18n="footer.origin">"The Lighthouse of Maracaibo" — Zulia, Venezuela</div>
+  <div class="bs-copy" data-i18n="footer.copy">© 2025 Catatumbo Accounting & Advisory · California</div>
+</div>
+
+<script>
+/* ── TRANSLATIONS ── */
+const T = {
+  en:{
+    "badge":"Launching Soon",
+    "eyebrow":"Accounting · Advisory · Bilingual",
+    "tagline":"\"Where Precision Strikes Like Lightning.\"",
+    "desc":"A <strong>full-service accounting & advisory firm</strong> for small businesses, freelancers, startups, restaurants, and real estate investors — serving all 50 US states, <strong>fully bilingual in English and Spanish.</strong>",
+    "svc.1":"Bookkeeping","svc.2":"Accounting & Tax Prep","svc.3":"Payroll Management",
+    "svc.4":"Controller / CFO Services","svc.5":"Business Formation","svc.6":"Financial Advisory",
+    "email.label":"Get notified at launch — receive a free financial checklist",
+    "email.ph":"your@email.com","email.btn":"Notify Me",
+    "email.success":"You're on the list! We'll be in touch soon.",
+    "email.note":"No spam, ever. Unsubscribe anytime.",
+    "card.or":"or reach us directly",
+    "cta.book":"Book a Free Consultation",
+    "cta.email":"hello@catatumboaccounting.com",
+    "trust.1":"IRS Compliant","trust.2":"All 50 US States","trust.3":"Bilingual EN / ES",
+    "trust.4":"Venezuelan-Founded","trust.5":"Secure Client Portal",
+    "footer.origin":"\"The Lighthouse of Maracaibo\" — Zulia, Venezuela",
+    "footer.copy":"© 2025 Catatumbo Accounting & Advisory · California"
+  },
+  es:{
+    "badge":"Próximamente",
+    "eyebrow":"Contabilidad · Consultoría · Bilingüe",
+    "tagline":"\"Donde la Precisión Golpea Como un Rayo.\"",
+    "desc":"Una <strong>firma contable y de consultoría de servicio completo</strong> para pequeñas empresas, freelancers, startups, restaurantes e inversores — sirviendo los 50 estados de EE.UU., <strong>completamente bilingüe en inglés y español.</strong>",
+    "svc.1":"Teneduría de Libros","svc.2":"Contabilidad e Impuestos","svc.3":"Gestión de Nómina",
+    "svc.4":"Servicios de Contralor / CFO","svc.5":"Formación de Empresas","svc.6":"Consultoría Financiera",
+    "email.label":"Recibe una notificación al lanzar — y una lista de verificación financiera gratis",
+    "email.ph":"tu@correo.com","email.btn":"Notifícame",
+    "email.success":"¡Estás en la lista! Te contactaremos pronto.",
+    "email.note":"Sin spam, nunca. Cancela cuando quieras.",
+    "card.or":"o contáctanos directamente",
+    "cta.book":"Agendar Consulta Gratuita",
+    "cta.email":"hello@catatumboaccounting.com",
+    "trust.1":"Cumplimiento IRS","trust.2":"Los 50 Estados de EE.UU.","trust.3":"Bilingüe EN / ES",
+    "trust.4":"Fundada por Venezolanos","trust.5":"Portal Seguro de Clientes",
+    "footer.origin":"\"El Faro de Maracaibo\" — Zulia, Venezuela",
+    "footer.copy":"© 2025 Catatumbo Accounting & Advisory · California"
+  }
+};
+
+/* ── LANG ENGINE ── */
+let lang = 'en';
+function setLang(l) {
+  if (l === lang) return;
+  lang = l;
+  document.getElementById('btn-en').classList.toggle('active', l === 'en');
+  document.getElementById('btn-es').classList.toggle('active', l === 'es');
+  document.documentElement.lang = l;
+  document.body.classList.add('lang-switching');
+  setTimeout(() => {
+    const t = T[l];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      if (t[el.dataset.i18n] !== undefined) el.innerHTML = t[el.dataset.i18n];
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+      if (t[el.dataset.i18nPh] !== undefined) el.placeholder = t[el.dataset.i18nPh];
+    });
+    document.body.classList.remove('lang-switching');
+  }, 150);
+}
+
+/* ── EMAIL ── */
+function submitEmail() {
+  const val = document.getElementById('emailInput').value.trim();
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!re.test(val)) {
+    const inp = document.getElementById('emailInput');
+    inp.style.borderColor = 'rgba(200,60,60,0.4)';
+    inp.style.boxShadow = '0 0 0 3px rgba(200,60,60,0.07)';
+    setTimeout(() => { inp.style.borderColor = ''; inp.style.boxShadow = ''; }, 1600);
+    return;
+  }
+  document.querySelector('.email-form').style.display = 'none';
+  document.getElementById('emailSuccess').style.display = 'flex';
+  console.log('Email captured:', val);
+}
+document.getElementById('emailInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') submitEmail();
+});
+
+/* ── LIGHTNING (deep navy on ivory, very subtle) ── */
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resize(); window.addEventListener('resize', resize);
+
+class Bolt {
+  constructor() { this.reset(); }
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.segs = []; this.alpha = 0;
+    this.max = 0.12 + Math.random() * 0.2;
+    this.state = 'in'; this.w = 0.4 + Math.random() * 0.9;
+    this.color = Math.random() > 0.5 ? '#0C3A6A' : '#1B6AB5';
+    this.ready = Date.now() + Math.random() * 12000;
+    this.build();
+  }
+  build() {
+    let x = this.x, y = 0;
+    const ty = canvas.height * (0.3 + Math.random() * 0.5);
+    while (y < ty) {
+      const len = 22 + Math.random() * 42;
+      const a = Math.PI / 2 + (Math.random() - 0.5) * 1.2;
+      const nx = x + Math.cos(a) * len, ny = y + Math.sin(a) * len;
+      this.segs.push({ x1: x, y1: y, x2: nx, y2: ny });
+      if (Math.random() < 0.18) {
+        const bl = 12 + Math.random() * 35, ba = a + (Math.random() - 0.5) * 1.4;
+        this.segs.push({ x1: nx, y1: ny, x2: nx + Math.cos(ba) * bl, y2: ny + Math.sin(ba) * bl, b: true });
+      }
+      x = nx; y = ny;
+    }
+  }
+  draw() {
+    if (Date.now() < this.ready) return;
+    if (this.state === 'in') {
+      this.alpha += 0.1;
+      if (this.alpha >= this.max) { this.alpha = this.max; this.state = 'out'; }
+    } else {
+      this.alpha -= 0.03;
+      if (this.alpha <= 0) { this.reset(); return; }
+    }
+    ctx.save();
+    ctx.strokeStyle = this.color;
+    ctx.shadowColor = this.color;
+    ctx.shadowBlur = 4;
+    ctx.lineCap = 'round';
+    for (const s of this.segs) {
+      ctx.globalAlpha = this.alpha * (s.b ? 0.35 : 1);
+      ctx.lineWidth = s.b ? this.w * 0.5 : this.w;
+      ctx.beginPath();
+      ctx.moveTo(s.x1, s.y1);
+      ctx.lineTo(s.x2, s.y2);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+}
+
+const bolts = Array.from({ length: 5 }, () => new Bolt());
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  bolts.forEach(b => b.draw());
+  requestAnimationFrame(animate);
+}
+requestAnimationFrame(animate);
+</script>
+</body>
+</html>
