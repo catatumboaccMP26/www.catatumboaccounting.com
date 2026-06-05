@@ -534,7 +534,10 @@ footer{background:var(--night);padding:2.5rem 5%;border-top:1px solid var(--bord
       <div class="portal-form-group"><label data-i18n="portal.pass">Password</label><input type="password" id="loginPass" placeholder="••••••••"></div>
       <button class="portal-login-btn" onclick="doLogin()" data-i18n="portal.loginbtn">Sign In to Portal</button>
       <div class="portal-forgot"><a href="mailto:info@catatumboaccounting.com" data-i18n="portal.forgot">Forgot your password? Contact us</a></div>
-      <div class="portal-demo-note" data-i18n="portal.demo"><strong>Demo:</strong> Enter any email & password to preview the client dashboard.</div>
+      <div class="portal-error" id="portalError" style="display:none;margin-top:0.75rem;padding:0.7rem 1rem;background:rgba(220,60,60,0.08);border:1px solid rgba(220,60,60,0.25);border-radius:4px;font-size:0.82rem;color:#E06060;text-align:center;">Incorrect email or password. Please try again.</div>
+      <div class="portal-request" style="margin-top:1.25rem;padding:0.9rem 1rem;background:rgba(91,184,232,0.05);border:1px solid rgba(91,184,232,0.12);border-radius:6px;text-align:center;">
+        <p style="font-size:0.78rem;color:var(--muted);line-height:1.7;" data-i18n="portal.request">Don't have access yet? <a href="mailto:info@catatumboaccounting.com?subject=Client Portal Access Request" style="color:var(--bolt-glow);text-decoration:none;font-weight:500;">Request your login credentials</a> and we will set up your account within 24 hours.</p>
+      </div>
     </div>
   </div>
   <div class="portal-dashboard" id="portalDashboard">
@@ -1052,7 +1055,7 @@ en:{
   "m6.title":"Financial Advisory","m6.sub":"Strategic guidance for small businesses ready to grow smarter.","m6.inc":"What's Included","m6.pricing":"Pricing",
   "m6.l1":"Cash flow forecasting (3–12 months)","m6.l2":"Annual budget creation","m6.l3":"Expense optimization analysis","m6.l4":"Break-even analysis","m6.l5":"Investor-ready financial packages",
   "m6.p1l":"One-Time Projects","m6.p1d":"Cash flow plan, budget, or analysis","m6.p2l":"Monthly Advisory","m6.p2d":"Ongoing strategic financial guidance",
-  "portal.close":"Close","portal.title":"Client Login","portal.sub":"Access your financials, reports, and documents","portal.email":"Email Address","portal.pass":"Password","portal.loginbtn":"Sign In to Portal","portal.forgot":"Forgot your password?","portal.demo":"<strong>Demo:</strong> Enter any email & password to preview the client dashboard.","portal.logout":"Sign Out",
+  "portal.close":"Close","portal.title":"Client Login","portal.sub":"Access your financials, reports, and documents","portal.email":"Email Address","portal.pass":"Password","portal.loginbtn":"Sign In to Portal","portal.forgot":"Forgot your password? Contact us","portal.request":"Don't have access yet? <a href='mailto:info@catatumboaccounting.com?subject=Client Portal Access Request' style='color:var(--bolt-glow);text-decoration:none;font-weight:500;'>Request your login credentials</a> and we will set up your account within 24 hours.","portal.logout":"Sign Out",
   "dash.main":"Main","dash.overview":"Overview","dash.docs":"Documents","dash.reports":"Financial Reports","dash.messages":"Messages","dash.upload":"Upload Files",
   "dash.welcomeMsg":"Welcome back 👋","dash.welcomeSub":"Here's a summary of your account as of today.",
   "dash.stat1":"Last Month Revenue","dash.stat2":"Total Expenses","dash.stat3":"Net Profit","dash.stat4":"Pending Docs","dash.stat4sub":"Action required",
@@ -1156,7 +1159,7 @@ es:{
   "m6.title":"Consultoría Financiera","m6.sub":"Orientación estratégica para pequeñas empresas listas para crecer de manera más inteligente.","m6.inc":"Qué Incluye","m6.pricing":"Precios",
   "m6.l1":"Pronóstico de flujo de caja (3–12 meses)","m6.l2":"Creación de presupuesto anual","m6.l3":"Análisis de optimización de gastos","m6.l4":"Análisis de punto de equilibrio","m6.l5":"Paquetes financieros listos para inversores",
   "m6.p1l":"Proyectos Únicos","m6.p1d":"Plan de flujo de caja, presupuesto o análisis","m6.p2l":"Consultoría Mensual","m6.p2d":"Orientación financiera estratégica continua",
-  "portal.close":"Cerrar","portal.title":"Acceso de Clientes","portal.sub":"Accede a tus finanzas, reportes y documentos","portal.email":"Correo Electrónico","portal.pass":"Contraseña","portal.loginbtn":"Iniciar Sesión","portal.forgot":"¿Olvidaste tu contraseña?","portal.demo":"<strong>Demo:</strong> Ingresa cualquier correo y contraseña para previsualizar el portal.","portal.logout":"Cerrar Sesión",
+  "portal.close":"Cerrar","portal.title":"Acceso de Clientes","portal.sub":"Accede a tus finanzas, reportes y documentos","portal.email":"Correo Electrónico","portal.pass":"Contraseña","portal.loginbtn":"Iniciar Sesión","portal.forgot":"¿Olvidaste tu contraseña? Contáctanos","portal.request":"¿Aún no tienes acceso? <a href='mailto:info@catatumboaccounting.com?subject=Solicitud de Acceso al Portal' style='color:var(--bolt-glow);text-decoration:none;font-weight:500;'>Solicita tus credenciales</a> y configuraremos tu cuenta en 24 horas.","portal.logout":"Cerrar Sesión",
   "dash.main":"Principal","dash.overview":"Resumen","dash.docs":"Documentos","dash.reports":"Reportes Financieros","dash.messages":"Mensajes","dash.upload":"Subir Archivos",
   "dash.welcomeMsg":"Bienvenido de nuevo 👋","dash.welcomeSub":"Aquí tienes un resumen de tu cuenta a la fecha de hoy.",
   "dash.stat1":"Ingresos del Mes Pasado","dash.stat2":"Gastos Totales","dash.stat3":"Ganancia Neta","dash.stat4":"Docs Pendientes","dash.stat4sub":"Acción requerida",
