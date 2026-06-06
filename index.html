@@ -610,11 +610,11 @@ footer{background:var(--navy);padding:2.5rem 5%;display:flex;align-items:center;
         <div class="sidebar-section">
           <div class="sidebar-label" data-i18n="dash.main">Main</div>
           <div class="sidebar-item active" onclick="showPanel('overview',this)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg><span data-i18n="dash.overview">Overview</span></div>
-          <div class="sidebar-item" onclick="showPanel('documents',this)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><span data-i18n="dash.docs">Documents</span><span class="sidebar-badge">3</span></div>
-          <div class="sidebar-item" onclick="showPanel('calendar',this)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span data-i18n="dash.calendar">Fiscal Calendar</span><span class="sidebar-badge gold">2</span></div>
-          <div class="sidebar-item" onclick="showPanel('invoices',this)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"/></svg><span data-i18n="dash.invoices">Invoices</span><span class="sidebar-badge">1</span></div>
-          <div class="sidebar-item" onclick="showPanel('esign',this)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg><span data-i18n="dash.esign">E-Signatures</span><span class="sidebar-badge">1</span></div>
-          <div class="sidebar-item" onclick="showPanel('messages',this)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg><span data-i18n="dash.messages">Messages</span><span class="sidebar-badge">2</span></div>
+          <div class="sidebar-item" onclick="showPanel('documents',this)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><span data-i18n="dash.docs">Documents</span><span class="sidebar-badge" id="badge-documents">3</span></div>
+          <div class="sidebar-item" onclick="showPanel('calendar',this)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span data-i18n="dash.calendar">Fiscal Calendar</span><span class="sidebar-badge gold" id="badge-calendar">2</span></div>
+          <div class="sidebar-item" onclick="showPanel('invoices',this)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"/></svg><span data-i18n="dash.invoices">Invoices</span><span class="sidebar-badge" id="badge-invoices">1</span></div>
+          <div class="sidebar-item" onclick="showPanel('esign',this)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg><span data-i18n="dash.esign">E-Signatures</span><span class="sidebar-badge" id="badge-esign">1</span></div>
+          <div class="sidebar-item" onclick="showPanel('messages',this)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg><span data-i18n="dash.messages">Messages</span><span class="sidebar-badge" id="badge-messages">2</span></div>
         </div>
         <div class="sidebar-section">
           <div class="sidebar-label" data-i18n="dash.account">Account</div>
@@ -627,7 +627,7 @@ footer{background:var(--navy);padding:2.5rem 5%;display:flex;align-items:center;
         <!-- OVERVIEW -->
         <div class="tab-panel active" id="panel-overview">
           <div class="dash-welcome"><h2 data-i18n="dash.welcomeMsg">Welcome back 👋</h2><p data-i18n="dash.welcomeSub">Here's your financial snapshot for today.</p></div>
-          <div class="dash-stats">
+          <div class="dash-stats" id="overviewStats">
             <div class="dash-stat blue"><div class="ds-label" data-i18n="dash.stat1">Last Month Revenue</div><div class="ds-val">$24,500</div><div class="ds-sub">↑ 12% vs prior month</div></div>
             <div class="dash-stat gold"><div class="ds-label" data-i18n="dash.stat2">Total Expenses</div><div class="ds-val">$9,840</div><div class="ds-sub">↓ 4% vs prior month</div></div>
             <div class="dash-stat green"><div class="ds-label" data-i18n="dash.stat3">Net Profit</div><div class="ds-val">$14,660</div><div class="ds-sub">↑ 18% vs prior month</div></div>
@@ -637,7 +637,7 @@ footer{background:var(--navy);padding:2.5rem 5%;display:flex;align-items:center;
             <div class="dash-card">
               <div class="dash-card-header"><h4 data-i18n="dash.recentDocs">Recent Documents</h4><a onclick="showPanel('documents',null)" data-i18n="dash.viewAll">View all</a></div>
               <table class="doc-table">
-                <tbody>
+                <tbody id="overviewRecentDocs">
                   <tr><td><div class="doc-name"><div class="doc-icon pdf"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg></div><span class="doc-name-text" data-i18n="doc.f1">April 2025 P&L Report</span></div></td><td><span class="badge new" data-i18n="doc.new">New</span></td></tr>
                   <tr><td><div class="doc-name"><div class="doc-icon xls"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div><span class="doc-name-text" data-i18n="doc.f2">Q1 2025 Balance Sheet</span></div></td><td><span class="badge ready" data-i18n="doc.ready">Ready</span></td></tr>
                   <tr><td><div class="doc-name"><div class="doc-icon pdf"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg></div><span class="doc-name-text" data-i18n="doc.f3">2024 Tax Return</span></div></td><td><span class="badge pending" data-i18n="doc.pending">Pending Signature</span></td></tr>
@@ -667,7 +667,7 @@ footer{background:var(--navy);padding:2.5rem 5%;display:flex;align-items:center;
           <div class="dash-welcome"><h2 data-i18n="dash.docs">Documents</h2><p data-i18n="dash.docsSub">All your financial documents in one secure place.</p></div>
           <table class="doc-table" style="background:var(--white);border-radius:8px;overflow:hidden;border:1px solid var(--border);">
             <thead><tr><th data-i18n="doc.name">Document</th><th data-i18n="doc.date">Date</th><th data-i18n="doc.status">Status</th><th data-i18n="doc.action">Action</th></tr></thead>
-            <tbody>
+            <tbody id="docsTableBody">
               <tr><td><div class="doc-name"><div class="doc-icon pdf"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg></div><span class="doc-name-text" data-i18n="doc.f1">April 2025 P&L Report</span></div></td><td class="doc-date">May 13, 2025</td><td><span class="badge new" data-i18n="doc.new">New</span></td><td><button class="doc-action-btn"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg><span data-i18n="doc.download">Download</span></button></td></tr>
               <tr><td><div class="doc-name"><div class="doc-icon xls"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div><span class="doc-name-text" data-i18n="doc.f2">Q1 2025 Balance Sheet</span></div></td><td class="doc-date">Apr 30, 2025</td><td><span class="badge ready" data-i18n="doc.ready">Ready</span></td><td><button class="doc-action-btn"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg><span data-i18n="doc.download">Download</span></button></td></tr>
               <tr><td><div class="doc-name"><div class="doc-icon pdf"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg></div><span class="doc-name-text" data-i18n="doc.f3">2024 Tax Return</span></div></td><td class="doc-date">Apr 15, 2025</td><td><span class="badge pending" data-i18n="doc.pending">Pending Signature</span></td><td><button class="doc-action-btn"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg><span data-i18n="doc.download">Download</span></button></td></tr>
@@ -740,17 +740,17 @@ footer{background:var(--navy);padding:2.5rem 5%;display:flex;align-items:center;
           <div class="dash-welcome"><h2 data-i18n="dash.invoices">Invoices</h2><p data-i18n="dash.invSub">View and pay your outstanding invoices securely.</p></div>
           <div class="dash-card" style="margin-bottom:1.5rem;">
             <div class="dash-card-header"><h4 data-i18n="dash.outstanding">Outstanding</h4></div>
-            <div class="invoice-item">
+            <div id="invoicesOutstandingList"><div class="invoice-item">
               <div class="inv-num">#INV-2025</div>
               <div class="inv-desc">Monthly Bookkeeping — May 2025</div>
               <div class="inv-amount">$399</div>
               <span class="badge pending" data-i18n="doc.pending">Due Jun 1</span>
               <button class="inv-pay-btn" data-i18n="inv.pay">Pay Now</button>
-            </div>
+            </div></div>
           </div>
           <div class="dash-card">
             <div class="dash-card-header"><h4 data-i18n="dash.paid">Paid Invoices</h4></div>
-            <div class="invoice-item">
+            <div id="invoicesPaidList"><div class="invoice-item">
               <div class="inv-num">#INV-2024</div>
               <div class="inv-desc">Monthly Bookkeeping — April 2025</div>
               <div class="inv-amount">$399</div>
@@ -761,7 +761,7 @@ footer{background:var(--navy);padding:2.5rem 5%;display:flex;align-items:center;
               <div class="inv-desc">2024 Tax Return Preparation</div>
               <div class="inv-amount">$650</div>
               <span class="badge signed" data-i18n="inv.paid">Paid</span>
-            </div>
+            </div></div>
           </div>
         </div>
 
@@ -770,22 +770,22 @@ footer{background:var(--navy);padding:2.5rem 5%;display:flex;align-items:center;
           <div class="dash-welcome"><h2 data-i18n="dash.esign">E-Signatures</h2><p data-i18n="dash.esignSub">Documents waiting for your signature.</p></div>
           <div class="dash-card" style="margin-bottom:1.5rem;">
             <div class="dash-card-header"><h4 data-i18n="dash.needsSig">Needs Your Signature</h4></div>
-            <div class="esign-item">
+            <div id="esignPendingList"><div class="esign-item">
               <div class="doc-icon pdf" style="flex-shrink:0;"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg></div>
               <div class="esign-doc"><strong data-i18n="doc.f3">2024 Tax Return</strong><br><span style="font-size:0.75rem;color:var(--text-muted)" data-i18n="esign.note">Please review before signing</span></div>
               <div class="esign-date" data-i18n="esign.due">Due: Jun 15, 2025</div>
               <span class="badge overdue" data-i18n="esign.action">Action Required</span>
               <button class="esign-btn" data-i18n="esign.sign"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>Sign Now</button>
-            </div>
+            </div></div>
           </div>
           <div class="dash-card">
             <div class="dash-card-header"><h4 data-i18n="dash.signed">Completed Signatures</h4></div>
-            <div class="esign-item">
+            <div id="esignDoneList"><div class="esign-item">
               <div class="doc-icon pdf" style="flex-shrink:0;"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg></div>
               <div class="esign-doc">Engagement Letter 2025</div>
               <div class="esign-date">Signed Jan 5, 2025</div>
               <span class="badge signed" data-i18n="esign.signed">Signed</span>
-            </div>
+            </div></div>
           </div>
         </div>
 
@@ -794,9 +794,9 @@ footer{background:var(--navy);padding:2.5rem 5%;display:flex;align-items:center;
           <div class="dash-welcome"><h2 data-i18n="dash.messages">Messages</h2><p data-i18n="dash.msgsSub">Direct communication with your accounting team.</p></div>
           <div class="dash-card">
             <div class="dash-card-header"><h4 data-i18n="dash.inbox">Inbox</h4></div>
-            <div class="msg-item"><div class="msg-avatar">CA</div><div class="msg-content"><div class="msg-from">Catatumbo Accounting</div><div class="msg-text" data-i18n="msg.m1">Your April P&L report is ready for review. Please check the Documents tab.</div><div class="msg-time">Today, 9:14 AM</div></div><div class="msg-unread"></div></div>
+            <div id="messagesInboxList"><div class="msg-item"><div class="msg-avatar">CA</div><div class="msg-content"><div class="msg-from">Catatumbo Accounting</div><div class="msg-text" data-i18n="msg.m1">Your April P&L report is ready for review. Please check the Documents tab.</div><div class="msg-time">Today, 9:14 AM</div></div><div class="msg-unread"></div></div>
             <div class="msg-item"><div class="msg-avatar">CA</div><div class="msg-content"><div class="msg-from">Catatumbo Accounting</div><div class="msg-text" data-i18n="msg.m2">Your 2024 tax return needs your signature. Please review and sign at your earliest convenience.</div><div class="msg-time">May 10, 2:30 PM</div></div><div class="msg-unread"></div></div>
-            <div class="msg-item"><div class="msg-avatar">CA</div><div class="msg-content"><div class="msg-from">Catatumbo Accounting</div><div class="msg-text" data-i18n="msg.m3">Q1 2025 Balance Sheet has been uploaded and is available for review.</div><div class="msg-time">Apr 30, 11:00 AM</div></div></div>
+            <div class="msg-item"><div class="msg-avatar">CA</div><div class="msg-content"><div class="msg-from">Catatumbo Accounting</div><div class="msg-text" data-i18n="msg.m3">Q1 2025 Balance Sheet has been uploaded and is available for review.</div><div class="msg-time">Apr 30, 11:00 AM</div></div></div></div>
           </div>
         </div>
 
@@ -1335,8 +1335,70 @@ function toggleFaq(el){el.classList.toggle('open');}
    ──────────────────────────────────────────────────────── */
 const PORTAL_USERS={
   'info@catatumboaccounting.com':'Catatumbo2026!',
-  // 'client@example.com': 'clientpassword',
+  'events.humble@gmail.com':'Humble2026!',
 };
+let currentUser=null;
+const CLIENT_DATA={};
+(function(){
+  CLIENT_DATA['info@catatumboaccounting.com']={
+    overviewStats:document.getElementById('overviewStats').innerHTML,
+    overviewRecentDocs:document.getElementById('overviewRecentDocs').innerHTML,
+    docsTableBody:document.getElementById('docsTableBody').innerHTML,
+    invoicesOutstandingList:document.getElementById('invoicesOutstandingList').innerHTML,
+    invoicesPaidList:document.getElementById('invoicesPaidList').innerHTML,
+    esignPendingList:document.getElementById('esignPendingList').innerHTML,
+    esignDoneList:document.getElementById('esignDoneList').innerHTML,
+    messagesInboxList:document.getElementById('messagesInboxList').innerHTML,
+    badges:{documents:'3',calendar:'2',invoices:'1',esign:'1',messages:'2'}
+  };
+})();
+function applyLang(){
+  const t=T[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{if(t[el.dataset.i18n]!==undefined)el.innerHTML=t[el.dataset.i18n];});
+}
+function renderDashboard(email){
+  const d=CLIENT_DATA[email];
+  const es=lang==='es';
+  function setEl(id,html){const el=document.getElementById(id);if(el)el.innerHTML=html;}
+  function setBadge(id,val){const el=document.getElementById(id);if(!el)return;if(!val){el.style.display='none';}else{el.style.display='';el.textContent=val;}}
+  if(d){
+    setEl('overviewStats',d.overviewStats);
+    setEl('overviewRecentDocs',d.overviewRecentDocs);
+    setEl('docsTableBody',d.docsTableBody);
+    setEl('invoicesOutstandingList',d.invoicesOutstandingList);
+    setEl('invoicesPaidList',d.invoicesPaidList);
+    setEl('esignPendingList',d.esignPendingList);
+    setEl('esignDoneList',d.esignDoneList);
+    setEl('messagesInboxList',d.messagesInboxList);
+    setBadge('badge-documents',d.badges.documents);
+    setBadge('badge-calendar',d.badges.calendar);
+    setBadge('badge-invoices',d.badges.invoices);
+    setBadge('badge-esign',d.badges.esign);
+    setBadge('badge-messages',d.badges.messages);
+  }else{
+    const noData=es?'Sin datos aún':'No data yet';
+    const noRec=`<div style="text-align:center;padding:1.5rem;color:var(--text-muted);font-style:italic;">${es?'Sin registros aún.':'No records yet.'}</div>`;
+    setEl('overviewStats',
+      `<div class="dash-stat blue"><div class="ds-label" data-i18n="dash.stat1">Last Month Revenue</div><div class="ds-val">—</div><div class="ds-sub">${noData}</div></div>`+
+      `<div class="dash-stat gold"><div class="ds-label" data-i18n="dash.stat2">Total Expenses</div><div class="ds-val">—</div><div class="ds-sub">${noData}</div></div>`+
+      `<div class="dash-stat green"><div class="ds-label" data-i18n="dash.stat3">Net Profit</div><div class="ds-val">—</div><div class="ds-sub">${noData}</div></div>`+
+      `<div class="dash-stat warn"><div class="ds-label" data-i18n="dash.stat4">Pending Items</div><div class="ds-val">0</div><div class="ds-sub">${es?'Todo en orden':'All clear'}</div></div>`
+    );
+    setEl('overviewRecentDocs',`<tr><td colspan="2" style="text-align:center;padding:1.5rem;color:var(--text-muted);font-style:italic;">${es?'Aún no hay documentos.':'No documents yet.'}</td></tr>`);
+    setEl('docsTableBody',`<tr><td colspan="4" style="text-align:center;padding:2rem;color:var(--text-muted);font-style:italic;">${es?'Aún no hay documentos en el portal.':'No documents on file yet.'}</td></tr>`);
+    setEl('invoicesOutstandingList',noRec);
+    setEl('invoicesPaidList',noRec);
+    setEl('esignPendingList',noRec);
+    setEl('esignDoneList',noRec);
+    setEl('messagesInboxList',`<div style="text-align:center;padding:1.5rem;color:var(--text-muted);font-style:italic;">${es?'No hay mensajes aún.':'No messages yet.'}</div>`);
+    setBadge('badge-documents','');
+    setBadge('badge-calendar','');
+    setBadge('badge-invoices','');
+    setBadge('badge-esign','');
+    setBadge('badge-messages','');
+  }
+  applyLang();
+}
 
 function openPortal(){document.getElementById('portalOverlay').classList.add('open');document.body.style.overflow='hidden';}
 function closePortal(){document.getElementById('portalOverlay').classList.remove('open');document.body.style.overflow='';doLogout();}
@@ -1355,15 +1417,18 @@ function doLogin(){
     return;
   }
   errEl.style.display='none';
+  currentUser=email;
   const name=email.split('@')[0].replace(/[._]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
   const initials=name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
   document.getElementById('dashAvatar').textContent=initials;
   document.getElementById('dashName').textContent=name;
+  renderDashboard(email);
   document.getElementById('portalLogin').style.display='none';
   document.getElementById('portalDashboard').classList.add('active');
 }
 
 function doLogout(){
+  currentUser=null;
   document.getElementById('portalLogin').style.display='flex';
   document.getElementById('portalDashboard').classList.remove('active');
   document.getElementById('loginEmail').value='';
